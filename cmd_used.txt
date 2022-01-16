@@ -1,0 +1,36 @@
+Mongodb Atlas
+SOcialMediaDB -> SANDBOX -> Connect your application
+mongodb+srv://root:<password>@sandbox.pvnfp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+MONGO_URL = 'mongodb+srv://root:root@sandbox.pvnfp.mongodb.net/social?retryWrites=true&w=majority'
+https://mongoosejs.com/docs/connections.html
+
+goto NetworkAccess in https://cloud.mongodb.com/v2/61b0c0549dcb8726a2c2c806#security/network/accessList
+and add 0.0.0.0/0 Access from anywhere
+
+++++++++++++++++++ NODE ++++++++++++++++++++++
+npm init
+npm install express mongoose dotenv helmet morgan nodemon bcrypt
+npm start
+npm install multer path // for file upload
+
+++++++++++++++++++++++++++++++++++++++++
+rm -rf node_modules
+npm cache clean --force
+npm install
+++++++++++++++++++ REACT ++++++++++++++++++++++
+
+D:\code\MERN_SocialMedia\react-social> npx create-react-app .
+
+https://fonts.google.com/specimen/Roboto
+
+https://mui.com/getting-started/installation/
+      npm install @mui/material @emotion/react @emotion/styled
+
+https://mui.com/components/material-icons/
+ SVG icons => npm install @mui/icons-material
+ 
+ Packages to install ( npm install ) : 
+ axios
+ react-router-dom@5 
+ timeago.js
+ mkcert  // for localhost https
