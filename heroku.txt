@@ -1,0 +1,34 @@
+#for deployment in heroku do the following first
+
+##node.js 
+1.)  use heroku.package.json for heroku
+(copy paste to package.json accordingly these two files:
+-local.package.json, 
+-heroku.package.json)
+
+##react
+2.) api/client/.env
+3.) api/clinet/package.json :: proxy=>   , "proxy": "http://localhost:8800/api"
+4.) api/client/public/index.html
+ 
+
+# for local development: npm install in api and api/client
+
+##heroku
+create app : socialtrip1
+goto settings relveal config vars and paste MONGO_URL
+ 
+ heroku logout from other folders
+ go inside D:\code\socialtrip1\api>   ::and do all the things here
+ heroku login
+ git init
+ heroku git:remote -a socialtrip1
+ git add .
+ git commit -am "first commit"
+ git push heroku master
+ 
+#for domains 
+heroku domains -a socialtrip-dm
+heroku domains:add socialtrip.info -a socialtrip-dm
+heroku logs   
+

@@ -22,7 +22,7 @@ app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 //middleware
 app.use(express.json());
-app.use(helmet());
+//app.use(helmet());
 app.use(morgan("common"));
 
 const storage = multer.diskStorage({
@@ -55,7 +55,34 @@ app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postRoute);
 
+// heroku
+app.use(express.static(path.join(__dirname, "/client/build")));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
+});
+
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        imgSrc: ["'self'", 'data:'],
+
+        // scriptSrc: ["'self'"],
+        // styleSrc: ["'self'", 'https://fonts.googleapis.com', "'unsafe-inline'"],
+        // connectSrc: ["'self'", 'https://ourDomain.us.auth0.com/oauth/token', 'https://ourDomain.azure-api.net/fields/request/paths/invoke'],
+        // fontSrc: ["'self'", 'https://fonts.gstatic.com'],
+        // objectSrc: ["'self'"],
+        // mediaSrc: ["'self'"],
+        // frameSrc: ["'self'", "ourDomain.us.auth0.com"],
+
+      },
+    }
+  })
+);
+//////////////////////////
+
 
 app.listen(process.env.PORT || 8800, () => {
-  console.log("Listining to the post 8800 ! ");
+  console.log(`Listining to the port :: ${process.env.PORT || 8800}`);
 });

@@ -1,6 +1,6 @@
 Mongodb Atlas
 SOcialMediaDB -> SANDBOX -> Connect your application
-mongodb+srv://root:<password>@sandbox.pvnfp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
 MONGO_URL = 'mongodb+srv://root:root@sandbox.pvnfp.mongodb.net/social?retryWrites=true&w=majority'
 https://mongoosejs.com/docs/connections.html
 
@@ -24,7 +24,7 @@ D:\code\MERN_SocialMedia\react-social> npx create-react-app .
 https://fonts.google.com/specimen/Roboto
 
 https://mui.com/getting-started/installation/
-      npm install @mui/material @emotion/react @emotion/styled
+npm install @mui/material @emotion/react @emotion/styled
 
 https://mui.com/components/material-icons/
  SVG icons => npm install @mui/icons-material

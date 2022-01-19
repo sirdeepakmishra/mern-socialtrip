@@ -5,7 +5,7 @@ import Leftbar from "../../components/leftbar/Leftbar";
 import Feed from "../../components/feed/Feed";
 import { useEffect, useState } from "react";
 import { useParams} from "react-router";
-import axios from "axios";
+import { axiosInstance } from "../../config";
 
 export default function Profile() {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
@@ -15,7 +15,7 @@ export default function Profile() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/users/?username=${usernameParam}`);
+      const res = await axiosInstance.get(`/users/?username=${usernameParam}`);
       setUser(res.data);
       
     };

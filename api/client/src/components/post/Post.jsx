@@ -2,7 +2,7 @@ import "./post.css";
 import { MoreVert } from "@mui/icons-material";
 //import { Users } from "../../dummuData";
 import { useEffect, useState, useContext } from "react";
-import axios from "axios";
+import { axiosInstance } from "../../config";
 import { format } from "timeago.js";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
@@ -20,8 +20,7 @@ export default function Post({ post }) {
 
   useEffect(() => {
     const fetchUser = async () => {
-      //const res = await axios.get(`/users/${post.userId}`);
-      const res = await axios.get(`/users/?userId=${post.userId}`);
+      const res = await axiosInstance.get(`/users/?userId=${post.userId}`);
       setUser(res.data);
     };
     fetchUser();
@@ -29,7 +28,7 @@ export default function Post({ post }) {
 
   const likeHandler = async () => {
     try {
-      await axios.put("/posts/" + post._id + "/like", {
+      await axiosInstance.put("/posts/" + post._id + "/like", {
         userId: currentUser._id,
       });
     } catch (err) {
@@ -58,6 +57,7 @@ export default function Post({ post }) {
               {user.username}
             </span>
             <span className="postDate">{format(post.createdAt)}</span>
+            {/* <span className="postDate">{(post.createdAt)}</span> */}
             {/* <span className="postDate">{post.createdAt}</span> */}
           </div>
           <div className="postTopRight">
