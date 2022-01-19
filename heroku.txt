@@ -1,0 +1,26 @@
+#for deployment in herko do the following first
+
+##node.js 
+1.)  use heroku.package.json 
+(rename: package.json=>local.package.json, heroku.package.json=>package.json)
+
+##react
+1.) api/client/.env
+2.) api/client/src/config.js
+3.) api/clinet/package.json :: proxy
+4.) api/client/public/index.html
+ 
+
+ 
+ 
+ heroku login
+ heroku git:remote -a socialtrip-dm
+ git add .
+ git commit -am "first commit"
+ git push heroku master
+ 
+#for domains 
+heroku domains -a socialtrip-dm
+heroku domains:add socialtrip.info -a socialtrip-dm
+heroku logs   
+

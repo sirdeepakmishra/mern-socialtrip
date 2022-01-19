@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && npm i -D --save-exact mini-css-extract-plugin@2.4.5 && npm run build"
   },
   "author": "deepak mishra node api",
   "license": "ISC",
@@ -16,9 +17,8 @@
     "mongoose": "^6.1.0",
     "morgan": "^1.10.0",
     "multer": "^1.4.4",
-    "nodemon": "^2.0.15",
     "path": "^0.12.7"
-  },  
+  },
   "engines": {
     "node": "16.13.1"
   }

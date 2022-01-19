@@ -2,9 +2,10 @@ import "./register.css";
 //import { AuthContext } from "../../context/AuthContext";
 //import { loginCall } from "../../apiCalls";
 import { useRef } from "react";
-import axios from "axios";
+//import axios from "axios";
 import { useHistory } from "react-router";
-import {  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { axiosInstance } from "../../config";
 
 export default function Register() {
   const username = useRef();
@@ -24,7 +25,7 @@ export default function Register() {
         password: password.current.value,
       };
       try {
-        axios.post("/auth/register", user);
+        axiosInstance.post("/auth/register", user);
         history.push("/login");
       } catch (err) {
         console.log(err);
@@ -39,6 +40,10 @@ export default function Register() {
           <h3 className="loginLogo">SocialTrip</h3>
           <span className="loginDesc">
             Connect with friends about your travel.
+            <br />
+            <i style={{ color: "#00b3b3", fontSize: "20px" }}>
+              A pilot project by Deepak Mishra
+            </i>
           </span>
         </div>
         <div className="loginRight">

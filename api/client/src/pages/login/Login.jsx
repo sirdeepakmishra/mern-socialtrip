@@ -3,13 +3,13 @@ import "./login.css";
 import { loginCall } from "../../apiCalls";
 import { AuthContext } from "../../context/AuthContext";
 //import {CircularProgress} from "@mui/material"
-import CircularProgress from '@mui/material/CircularProgress';
-import {  Link } from "react-router-dom";
+import CircularProgress from "@mui/material/CircularProgress";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const email = useRef();
   const password = useRef();
-  const {  isFetching,  dispatch } = useContext(AuthContext);
+  const { isFetching, dispatch } = useContext(AuthContext);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -26,6 +26,10 @@ export default function Login() {
           <h3 className="loginLogo">SocialTrip</h3>
           <span className="loginDesc">
             Connect with friends about your travel.
+            <br />
+            <i style={{ color: "#00b3b3", fontSize: "20px" }}>
+              A pilot project by Deepak Mishra
+            </i>
           </span>
         </div>
         <div className="loginRight">
@@ -46,17 +50,21 @@ export default function Login() {
               ref={password}
             />
             <button className="loginButton" type="submit" disabled={isFetching}>
-              {isFetching ? <CircularProgress color="inherit" size="30px" />: "Log In"}
+              {isFetching ? (
+                <CircularProgress color="inherit" size="30px" />
+              ) : (
+                "Log In"
+              )}
             </button>
             <span className="loginForgot">Forgot Password?</span>
             <button className="loginRegisterButton" disabled={isFetching}>
-              {isFetching ? <CircularProgress color="inherit" size="30px" /> :
-              
-              
-              <Link className="loginRegisterButtonLink" to="/register">
-                Create a New Account
-              </Link>
-              }
+              {isFetching ? (
+                <CircularProgress color="inherit" size="30px" />
+              ) : (
+                <Link className="loginRegisterButtonLink" to="/register">
+                  Create a New Account
+                </Link>
+              )}
             </button>
           </form>
         </div>
