@@ -1,14 +1,14 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies client
-/api/client/node_modules
-/api/client/package-lock.json
-/api/client/build
+/client/node_modules
+/client/package-lock.json
+/client/build
 
 # dependencies node api
-/api/node_modules
-/api/package-lock.json
-/api/build
+/node_modules
+/package-lock.json
+/build
 
 
 /.pnp
